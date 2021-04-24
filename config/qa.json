@@ -1,0 +1,22 @@
+{
+    "chromeWebSecurity": false,
+    
+      "env": 
+      {
+        "baseUrl": "http://prova.stefanini-jgr.com.br/teste/qa/",
+
+        "user-erro":  "João",
+        "email-erro": "joaoteste.com",
+        "pass-erro":  "T",
+
+    
+        "user2":  "João Kleber",
+        "email2": "joaokleber98908@teste.com",
+        "pass2":  "Teste@123",
+
+    
+        "user3":  "John Dohn",
+        "email3": "johndohn89303@testeprojects.com.br",
+        "pass3":  "Teste@123"
+      }
+    }
