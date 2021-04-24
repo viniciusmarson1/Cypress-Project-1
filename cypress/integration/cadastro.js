@@ -5,9 +5,9 @@ describe('Cadastro', () => {
    // beforeEach será o primeiro comando a ser executado em todos os "it"
     beforeEach(() => cy.visit(`${Cypress.env('baseUrl')}`));
     beforeEach(() => cy.VerificarCampos()); // Verifica se os campos estão visiveis e vazios
-    afterEach(() => cy.screenshot()); // Captura de Tela do caso de teste
+    // afterEach(() => cy.screenshot()); // Captura de Tela do caso de teste
 
-    it('Realizando Cadastro com nome errado', () => { //Nome do caso de teste
+    it('Realizando Cadastro com nome errado', () => { //Define o  caso de teste
         cy.get('#name').type(Cypress.env('user-erro')); // Busca o campo e importa a variável do arquivo config/qa
         cy.get('#email').type(Cypress.env('email2'));
         cy.get('#password').type(Cypress.env('pass2'));
@@ -45,7 +45,6 @@ describe('Cadastro', () => {
         .should('be.visible');
         cy.contains('A senha deve conter ao menos 8 caracteres.')
         .should('be.visible');
-        cy.log('Novo usuário cadastro');
     });
 
     it('Realizando Cadastro Corretamente', () => {
@@ -56,9 +55,10 @@ describe('Cadastro', () => {
         cy.log('Novo usuário cadastro');
         cy.get('table')
         .should('be.visible')
-        .contains('1').siblings(); // cy.get('table') pega o elemento ancora (tabela) e o siblings pega os elementos irmãos
+        .contains('1').siblings(); // cy.get('table') seleciona o elemento ancora (tabela) e o siblings seleciona os elementos irmãos
     });
-    it('Realizando Cadastro Corretamente e excluindo o usuário', () => {
+
+    it.only('Realizando Cadastro Corretamente e excluindo o usuário', () => {
         cy.get('#name').type(Cypress.env('user2'));
         cy.get('#email').type(Cypress.env('email2'));
         cy.get('#password').type(Cypress.env('pass2'));
@@ -71,12 +71,12 @@ describe('Cadastro', () => {
         cy.log('Novo usuário cadastro');
         cy.get('table')
         .should('be.visible')
-        .contains('1').siblings().eq(0).next(); // cy.get('table') pega o elemento ancora (tabela) e o siblings pega os elementos irmãos, "eq" seleciona um campo e o next seleciona o próximo
+        .contains('1').siblings().eq(0).next(); // cy.get('table') pega o elemento ancora (tabela),
+                                                // siblings pega os elementos irmãos, "eq" seleciona um campo e o 
+                                                //next seleciona o próximo
         cy.get('#removeUser1').click();
         cy.get('table')
         .contains('2').should('be.visible');
-
-        
 
     });
 });
