@@ -58,7 +58,7 @@ describe('Cadastro', () => {
         .contains('1').siblings(); // cy.get('table') seleciona o elemento ancora (tabela) e o siblings seleciona os elementos irmãos
     });
 
-    it.only('Realizando Cadastro Corretamente e excluindo o usuário', () => {
+    it('Realizando Cadastro Corretamente e excluindo o usuário', () => {
         cy.get('#name').type(Cypress.env('user2'));
         cy.get('#email').type(Cypress.env('email2'));
         cy.get('#password').type(Cypress.env('pass2'));
