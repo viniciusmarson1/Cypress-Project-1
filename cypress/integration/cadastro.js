@@ -7,7 +7,7 @@ describe('Cadastro', () => {
     beforeEach(() => cy.VerificarCampos()); // Verifica se os campos estão visiveis e vazios
     afterEach(() => cy.screenshot()); // Captura de Tela do caso de teste
 
-    it('Realizar Cadastro com nome errado', () => { //Nome do caso de teste
+    it('Realizando Cadastro com nome errado', () => { //Nome do caso de teste
         cy.get('#name').type(Cypress.env('user-erro')); // Busca o campo e importa a variável do arquivo config/qa
         cy.get('#email').type(Cypress.env('email2'));
         cy.get('#password').type(Cypress.env('pass2'));
@@ -16,7 +16,7 @@ describe('Cadastro', () => {
         .should('be.visible');  // Validação do campo
     });
 
-    it('Realizar Cadastro com email errado', () => {
+    it('Realizando Cadastro com email errado', () => {
         cy.get('#name').type(Cypress.env('user2'));
         cy.get('#email').type(Cypress.env('email-erro'));
         cy.get('#password').type(Cypress.env('pass2'));
@@ -25,7 +25,7 @@ describe('Cadastro', () => {
         .should('be.visible');
     });
 
-    it('Realizar Cadastro com 1 caracter na senha', () => {
+    it('Realizando Cadastro com 1 caracter na senha', () => {
         cy.get('#name').type(Cypress.env('user2'));
         cy.get('#email').type(Cypress.env('email2'));
         cy.get('#password').type(Cypress.env('pass-erro'));
@@ -34,7 +34,7 @@ describe('Cadastro', () => {
         .should('be.visible');
     });
 
-    it('Realizar Cadastro com todos campos errados', () => {
+    it('Realizando Cadastro com todos campos errados', () => {
         cy.get('#name').type(Cypress.env('user-erro'));
         cy.get('#email').type(Cypress.env('email-erro'));
         cy.get('#password').type(Cypress.env('pass-erro'));
@@ -48,7 +48,7 @@ describe('Cadastro', () => {
         cy.log('Novo usuário cadastro');
     });
 
-    it('Realizar Cadastro Corretamente', () => {
+    it('Realizando Cadastro Corretamente', () => {
         cy.get('#name').type(Cypress.env('user2'));
         cy.get('#email').type(Cypress.env('email2'));
         cy.get('#password').type(Cypress.env('pass2'));
@@ -58,7 +58,7 @@ describe('Cadastro', () => {
         .should('be.visible')
         .contains('1').siblings(); // cy.get('table') pega o elemento ancora (tabela) e o siblings pega os elementos irmãos
     });
-    it('Realizar Cadastro Corretamente e excluir o usuário', () => {
+    it('Realizando Cadastro Corretamente e excluindo o usuário', () => {
         cy.get('#name').type(Cypress.env('user2'));
         cy.get('#email').type(Cypress.env('email2'));
         cy.get('#password').type(Cypress.env('pass2'));
