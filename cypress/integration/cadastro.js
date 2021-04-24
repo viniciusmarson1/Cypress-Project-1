@@ -5,7 +5,7 @@ describe('Cadastro', () => {
    // beforeEach será o primeiro comando a ser executado em todos os "it"
     beforeEach(() => cy.visit(`${Cypress.env('baseUrl')}`));
     beforeEach(() => cy.VerificarCampos()); // Verifica se os campos estão visiveis e vazios
-    // afterEach(() => cy.screenshot()); // Captura de Tela do caso de teste
+    afterEach(() => cy.screenshot()); // Captura de Tela do caso de teste
 
     it('Realizando Cadastro com nome errado', () => { //Define o  caso de teste
         cy.get('#name').type(Cypress.env('user-erro')); // Busca o campo e importa a variável do arquivo config/qa
